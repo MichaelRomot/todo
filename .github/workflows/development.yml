@@ -1,0 +1,33 @@
+name: Development
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+concurrency:
+  group: ${{github.workflow}}-${{github.ref}}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: 🧽 Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: "☁️ Checkout repo"
+        uses: actions/checkout@v3
+
+      - name: "📀 Setup node"
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: "🧶 Yarn install"
+        uses: borales/actions-yarn@v3
+        with:
+          cmd: install --frozen-lockfile
+
+      - name: "🧽 Run lint"
+        run: yarn run lint
