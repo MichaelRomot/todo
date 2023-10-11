@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: "☁️ Checkout repo"
+      - name: ☁️ Checkout repo
         uses: actions/checkout@v3
 
       - name: "📀 Setup node"
@@ -24,10 +24,10 @@ jobs:
         with:
           node-version: 18
 
-      - name: "🧶 Yarn install"
+      - name: 🧶 Yarn install
         run: yarn install --frozen-lockfile
 
-      - name: "🧽 Run lint"
+      - name: 🧽 Run lint
         run: yarn run lint
 
   typescript:
@@ -35,14 +35,31 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: "☁️ Checkout repo"
+      - name: ☁️ Checkout repo
         uses: actions/checkout@v3
 
-      - name: "📀 Setup node"
+      - name: 📀 Setup node
         uses: actions/setup-node@v3
 
-      - name: "🧶 Yarn install"
+      - name: 🧶 Yarn install
         run: yarn install --frozen-lockfile
 
-      - name: "ʦ Run type check"
+      - name: ʦ Run type check
         run: yarn run typecheck
+
+  jest:
+    name: 👑 Jest
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: ☁️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: 📀 Setup node
+        uses: actions/setup-node@v3
+
+      - name: 🧶 Yarn install
+        run: yarn install --frozen--lockfile
+
+      - name: 👑 Run jest
+        run: yarn run test
