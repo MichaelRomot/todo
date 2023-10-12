@@ -1,5 +1,11 @@
+import ToDoControl from "./components/ToDoControl";
+
 function App() {
-  return <p>App</p>;
+  return (
+    <div className="l-card l-main">
+      <ToDoControl />
+    </div>
+  );
 }
 
 export default App;

@@ -1,69 +1,98 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  /* fonts */
+  --font-size: 1.2rem;
+
+  /* metrics */
+  --col-width: 1000px;
+
+  --border-radius: 1rem;
+
+  --gutter-small: 2px;
+  --gutter-medium: 0.9rem;
+  --gutter-large: 2rem;
+
+  --line-width: 2px;
+
+  /* colors */
+  --color-primary: #a73121;
+  --color-card: #ffffff;
+  --color-shadow: #bbbbbb;
+  --color-input-bg: #eeeeee;
+
+  /* misc */
+  --box-shadow: 5px 5px 20px var(--color-shadow);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+html,
 body {
   margin: 0;
+  padding: 0;
+  font-size: var(--font-size);
+}
+
+input[type="text"] {
+  font-size: var(--font-size);
+  border: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+.l-centered {
+  margin: 0 auto;
+}
+
+.l-flex-c {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.l-flex-r {
+  display: flex;
+  flex-direction: row;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.l-text-align-r {
+  text-align: right;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.l-text-align-l {
+  text-align: left;
+}
+
+.l-card {
+  background-color: var(--color-card);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  padding: var(--gutter-large);
+}
+
+.l-main {
+  width: var(--col-width);
+  margin: var(--gutter-large) auto;
+}
+
+.m-input-box {
+  border-radius: var(--border-radius);
+  padding: var(--gutter-medium);
+  background-color: var(--color-input-bg);
+}
+
+.m-todo-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.m-number-input {
+  flex-grow: 1;
+  background-color: transparent;
 }
