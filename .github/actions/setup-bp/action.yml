@@ -10,3 +10,4 @@ runs:
 
     - name: 🧶 Yarn install
       run: yarn install --frozen-lockfile
+      shell: bash
